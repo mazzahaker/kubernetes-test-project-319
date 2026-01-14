@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: bulletin
+data:
+  SPRING_PROFILES_ACTIVE: prod
+  SERVER_PORT: "8080"

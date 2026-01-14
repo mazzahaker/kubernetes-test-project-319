@@ -1,0 +1,5 @@
+namespace: bulletin
+image:
+  repository: ghcr.io/mazzahaker/project-devops-deploy
+  tag: latest
+replicaCount: 2
