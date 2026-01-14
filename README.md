@@ -1,0 +1,2 @@
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/mazzahaker/kubernetes-test-project-319/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/mazzahaker/kubernetes-test-project-319/actions)
