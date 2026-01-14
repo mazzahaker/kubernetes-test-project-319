@@ -18,6 +18,7 @@ spec:
       labels:
         app: bulletin-app
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
         - name: app
           image: ghcr.io/mazzahaker/project-devops-deploy:latest
@@ -28,3 +29,32 @@ spec:
                 name: app-config
             - secretRef:
                 name: app-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            failureThreshold: 30
+            periodSeconds: 2
