@@ -4,6 +4,7 @@ metadata:
   name: bulletin-svc
   namespace: bulletin
 spec:
+  # type: ClusterIP
   selector:
     app: bulletin-app
   ports:
